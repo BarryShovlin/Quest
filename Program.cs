@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 // Every class in the program is defined within the "Quest" namespace
 // Classes within the same namespace refer to one another without a "using" statement
@@ -7,7 +8,7 @@ namespace Quest
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Please tell me your name, adventurer...");
             Console.Write(">");
@@ -59,26 +60,43 @@ namespace Quest
                 favoriteBeatle
             };
 
-            // Loop through all the challenges and subject the Adventurer to them
-            foreach (Challenge challenge in challenges)
+
             {
-                challenge.RunChallenge(theAdventurer);
+                // Loop through all the challenges and subject the Adventurer to them
+                foreach (Challenge challenge in challenges)
+                {
+                    challenge.RunChallenge(theAdventurer);
+                }
+
+                // This code examines how Awesome the Adventurer is after completing the challenges
+                // And praises or humiliates them accordingly
+                if (theAdventurer.Awesomeness >= maxAwesomeness)
+                {
+                    Console.WriteLine("YOU DID IT! You are truly awesome!");
+                }
+                else if (theAdventurer.Awesomeness <= minAwesomeness)
+                {
+                    Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
+                }
+                else
+                {
+                    Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+                }
+                Console.WriteLine("Would you like to play again? (y/n)");
+                Console.Write(">");
+                string playOn = Console.ReadLine();
+                if (playOn == "y")
+                {
+                    Main();
+                }
+                else
+                {
+                    Console.WriteLine("Get lost, Bud");
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                }
             }
 
-            // This code examines how Awesome the Adventurer is after completing the challenges
-            // And praises or humiliates them accordingly
-            if (theAdventurer.Awesomeness >= maxAwesomeness)
-            {
-                Console.WriteLine("YOU DID IT! You are truly awesome!");
-            }
-            else if (theAdventurer.Awesomeness <= minAwesomeness)
-            {
-                Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
-            }
-            else
-            {
-                Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
-            }
         }
     }
 }
