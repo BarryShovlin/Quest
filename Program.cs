@@ -37,6 +37,8 @@ namespace Quest
 ",
                 4, 20
             );
+            Challenge tortoiseAge = new Challenge("What is life expectancy of a Galapagos Tortoise?", 90, 50);
+            Challenge sugar = new Challenge("How many cups of sugar does it take to get to the moom", 3, 100);
 
             Hat playerHat = new Hat();
 
@@ -78,9 +80,10 @@ namespace Quest
 
             {
                 // Loop through all the challenges and subject the Adventurer to them
-                foreach (Challenge challenge in challenges)
+                for (int i = 0; i < 5; i++)
                 {
-                    challenge.RunChallenge(theAdventurer);
+                    int randomChallenge = new Random().Next(0, challenges.Count);
+                    challenges[randomChallenge].RunChallenge(theAdventurer);
                 }
 
                 // This code examines how Awesome the Adventurer is after completing the challenges
@@ -114,6 +117,7 @@ namespace Quest
                 Thread.Sleep(1000);
 
                 prize.showPrize(theAdventurer);
+                Thread.Sleep(2000);
                 Console.WriteLine("Would you like to play again? (y/n)");
                 Console.Write(">");
                 string playOn = Console.ReadLine();
