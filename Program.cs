@@ -10,6 +10,7 @@ namespace Quest
     {
         static void Main()
         {
+
             Console.WriteLine("Please tell me your name, adventurer...");
             Console.Write(">");
             string newPlayer = Console.ReadLine();
@@ -57,6 +58,7 @@ namespace Quest
 
             // Make a new "Adventurer" object using the "Adventurer" class
             Adventurer theAdventurer = new Adventurer(newPlayer, playerRobe);
+
             Console.WriteLine(theAdventurer.GetDescription());
 
             // A list of challenges for the Adventurer to complete
