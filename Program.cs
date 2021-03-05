@@ -38,13 +38,15 @@ namespace Quest
                 4, 20
             );
 
+            Hat playerHat = new Hat();
+
 
             Robe playerRobe = new Robe();
 
             playerRobe.Length = 36;
             playerRobe.Colors = new List<string>()
             {
-                "Blue", "yellow", "green"
+                "Blue", "yellow", "purple"
             };
 
             // "Awesomeness" is like our Adventurer's current "score"
@@ -57,7 +59,7 @@ namespace Quest
             int maxAwesomeness = 100;
 
             // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer(newPlayer, playerRobe);
+            Adventurer theAdventurer = new Adventurer(newPlayer, playerRobe, playerHat);
 
             Console.WriteLine(theAdventurer.GetDescription());
 
