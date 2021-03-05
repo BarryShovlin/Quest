@@ -16,10 +16,7 @@ namespace Quest
         {
             if (player.Awesomeness > 0)
             {
-                for (int i = 0; i < player.Awesomeness; i++)
-                {
-                    Console.WriteLine(_text);
-                }
+                Console.WriteLine(_text);
             }
             else
             {

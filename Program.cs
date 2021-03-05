@@ -62,8 +62,9 @@ namespace Quest
 
             // Make a new "Adventurer" object using the "Adventurer" class
             Adventurer theAdventurer = new Adventurer(newPlayer, playerRobe, playerHat);
+            theAdventurer.Success = 0;
 
-            Console.WriteLine(theAdventurer.GetDescription());
+
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -76,65 +77,75 @@ namespace Quest
                 favoriteBeatle
             };
 
-            Prize prize = new Prize("A Spider Ring!!!!!");
 
+
+            Prize prize = new Prize($"A Spider Ring!!!!!(x{theAdventurer.Awesomeness})");
+
+            bool gameTime = true;
+
+            while (gameTime)
             {
-                // Loop through all the challenges and subject the Adventurer to them
-                for (int i = 0; i < 5; i++)
-                {
-                    int randomChallenge = new Random().Next(0, challenges.Count);
-                    challenges[randomChallenge].RunChallenge(theAdventurer);
-                }
 
-                // This code examines how Awesome the Adventurer is after completing the challenges
-                // And praises or humiliates them accordingly
-                if (theAdventurer.Awesomeness >= maxAwesomeness)
+                Console.WriteLine(theAdventurer.GetDescription());
                 {
-                    Console.WriteLine("YOU DID IT! You are truly awesome!");
-                }
-                else if (theAdventurer.Awesomeness <= minAwesomeness)
-                {
-                    Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
-                }
-                else
-                {
-                    Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
-                }
+                    // Loop through all the challenges and subject the Adventurer to them
+                    for (int i = 0; i < 5; i++)
+                    {
+                        int randomChallenge = new Random().Next(0, challenges.Count);
+                        challenges[randomChallenge].RunChallenge(theAdventurer);
+                    }
 
-                Console.Clear();
-                Console.WriteLine("You have faught a tough battle, now let's see your prize...");
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
-                Thread.Sleep(1000);
+                    // This code examines how Awesome the Adventurer is after completing the challenges
+                    // And praises or humiliates them accordingly
+                    if (theAdventurer.Awesomeness >= maxAwesomeness)
+                    {
+                        Console.WriteLine("YOU DID IT! You are truly awesome!");
+                    }
+                    else if (theAdventurer.Awesomeness <= minAwesomeness)
+                    {
+                        Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+                    }
 
-                prize.showPrize(theAdventurer);
-                Thread.Sleep(2000);
-                Console.WriteLine("Would you like to play again? (y/n)");
-                Console.Write(">");
-                string playOn = Console.ReadLine();
-                if (playOn == "y")
-                {
+
                     Console.Clear();
-                    Main();
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("Get lost, Bud");
+                    Console.WriteLine("You have faught a tough battle, now let's see your prize...");
+                    Console.Write(".");
+                    Thread.Sleep(1000);
+                    Console.Write(".");
+                    Thread.Sleep(1000);
+                    Console.Write(".");
+                    Thread.Sleep(1000);
+                    Console.Write(".");
+                    Thread.Sleep(1000);
+                    Console.Write(".");
+                    Thread.Sleep(1000);
+                    Console.Write(".");
+                    Thread.Sleep(1000);
+
+                    prize.showPrize(theAdventurer);
                     Thread.Sleep(2000);
-                    Console.Clear();
+                    Console.WriteLine("Would you like to play again? (y/n)");
+                    Console.Write(">");
+                    string playOn = Console.ReadLine();
+                    if (playOn == "y")
+                    {
+                        theAdventurer.Awesomeness += (theAdventurer.Success * 10);
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Get lost, Bud");
+                        Thread.Sleep(2000);
+                        gameTime = false;
+                    }
                 }
-            }
 
+            }
         }
     }
 }
