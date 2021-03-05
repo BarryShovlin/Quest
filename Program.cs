@@ -98,20 +98,8 @@ namespace Quest
                     Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
                 }
 
+                Console.Clear();
                 Console.WriteLine("You have faught a tough battle, now let's see your prize...");
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.Write(".");
-                Thread.Sleep(1000);
-                Console.WriteLine("");
                 Console.Write(".");
                 Thread.Sleep(1000);
                 Console.Write(".");
@@ -131,10 +119,12 @@ namespace Quest
                 string playOn = Console.ReadLine();
                 if (playOn == "y")
                 {
+                    Console.Clear();
                     Main();
                 }
                 else
                 {
+                    Console.Clear();
                     Console.WriteLine("Get lost, Bud");
                     Thread.Sleep(2000);
                     Console.Clear();
