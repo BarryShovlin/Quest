@@ -74,6 +74,7 @@ namespace Quest
                 favoriteBeatle
             };
 
+            Prize prize = new Prize("A Spider Ring!!!!!");
 
             {
                 // Loop through all the challenges and subject the Adventurer to them
@@ -96,6 +97,35 @@ namespace Quest
                 {
                     Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
                 }
+
+                Console.WriteLine("You have faught a tough battle, now let's see your prize...");
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.WriteLine("");
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.Write(".");
+                Thread.Sleep(1000);
+
+                prize.showPrize(theAdventurer);
                 Console.WriteLine("Would you like to play again? (y/n)");
                 Console.Write(">");
                 string playOn = Console.ReadLine();
@@ -106,7 +136,7 @@ namespace Quest
                 else
                 {
                     Console.WriteLine("Get lost, Bud");
-                    Thread.Sleep(3000);
+                    Thread.Sleep(2000);
                     Console.Clear();
                 }
             }
